@@ -14,18 +14,20 @@ namespace Calculator
         public static string removeTheZeros(string x)
         {
             int size = x.Length;
-            int i = size -1;
-                        while (i-- > size)
+            if (size == 1) return x;
+            int j = 0;
+
+            while (j <= (size - 1))
             {
-                if (x.ElementAt( i ) == '0')
+                if (x.ElementAt(size - 1 - j) == '0')
                 {
-                    x.Remove(i);
+                    j++;
                 }
-                else
-                {
-                    break;
-                }
+                else break;
+
             }
+
+            x = x.Substring(0, size - j);
             return x;
         }
     }
@@ -71,12 +73,10 @@ namespace Calculator
     {
         static void Main(string[] args)
         {
-            Integer x;
-            string a = "1000";
-            a;
-            Console.WriteLine(Number.removeTheZeros(a));
+            string x = "1234";
+            x = Number.removeTheZeros(x);
 
-
+            Console.WriteLine(x);
         }
     }
 }
